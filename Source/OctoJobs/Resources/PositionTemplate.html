@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style type="text/css">
+            body {
+                color: #444;
+                font: -apple-system-body;
+                padding: 5px;
+            }
+            h1 { font: -apple-system-headline; }
+            h2 { font: -apple-system-subheadline; }
+            a { color: #1d80be; }
+            .supertitle {
+                color: #888;
+                font: -apple-system-caption1;
+                margin: 0 0 -10px;
+            }
+            .logo { text-align: center; padding: 10px 0px; }
+            img { max-width: 260px; }
+        </style>
+    </head>
+    <body>
+        <p class="supertitle">
+            <%= position_type %> / <%= position_location %>
+        </p>
+        <h1><%= position_title %></h1>
+        <%= company_logo %>
+        <%= position_description %>
+        <h2>How to apply</h2>
+        <%= how_to_apply %>
+    </body>
+</html>
