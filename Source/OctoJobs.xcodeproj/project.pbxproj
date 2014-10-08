@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F32FD9919E4FAC300DF96F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F32FD9819E4FAC300DF96F4 /* AppDelegate.swift */; };
 		2F924A021791F0FE003B30DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F924A001791F0FE003B30DC /* InfoPlist.strings */; };
 		2F924A051791F476003B30DC /* OCJAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F924A041791F476003B30DC /* OCJAPIClient.m */; };
 		2F924A091791F7E9003B30DC /* OCJPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F924A081791F7E9003B30DC /* OCJPosition.m */; };
@@ -16,8 +17,6 @@
 		2FD413A71780CD13008A67BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD413A61780CD13008A67BB /* Foundation.framework */; };
 		2FD413A91780CD13008A67BB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD413A81780CD13008A67BB /* CoreGraphics.framework */; };
 		2FD413AB1780CD13008A67BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD413AA1780CD13008A67BB /* UIKit.framework */; };
-		2FD413B31780CD13008A67BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD413B21780CD13008A67BB /* main.m */; };
-		2FD413B71780CD13008A67BB /* OCJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD413B61780CD13008A67BB /* OCJAppDelegate.m */; };
 		2FD413B91780CD13008A67BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD413B81780CD13008A67BB /* Images.xcassets */; };
 		2FD413C01780CD13008A67BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD413BF1780CD13008A67BB /* XCTest.framework */; };
 		2FD413C11780CD13008A67BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD413A61780CD13008A67BB /* Foundation.framework */; };
@@ -39,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F32FD9819E4FAC300DF96F4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F924A011791F0FE003B30DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F924A031791F476003B30DC /* OCJAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OCJAPIClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2F924A041791F476003B30DC /* OCJAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OCJAPIClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -55,10 +55,7 @@
 		2FD413A81780CD13008A67BB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2FD413AA1780CD13008A67BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2FD413AE1780CD13008A67BB /* OctoJobs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OctoJobs-Info.plist"; sourceTree = "<group>"; };
-		2FD413B21780CD13008A67BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = main.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2FD413B41780CD13008A67BB /* OctoJobs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OctoJobs-Prefix.pch"; sourceTree = "<group>"; };
-		2FD413B51780CD13008A67BB /* OCJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OCJAppDelegate.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		2FD413B61780CD13008A67BB /* OCJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OCJAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2FD413B81780CD13008A67BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2FD413BE1780CD13008A67BB /* OctoJobsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OctoJobsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD413BF1780CD13008A67BB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -96,8 +93,7 @@
 		2F9249FD1791F090003B30DC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2FD413B51780CD13008A67BB /* OCJAppDelegate.h */,
-				2FD413B61780CD13008A67BB /* OCJAppDelegate.m */,
+				2F32FD9819E4FAC300DF96F4 /* AppDelegate.swift */,
 				2FB3330E179097BD002F2076 /* OCJJobListViewController.h */,
 				2FB3330F179097BD002F2076 /* OCJJobListViewController.m */,
 				2FA59BCD179DB7F10048130E /* OCJPositionCell.h */,
@@ -175,7 +171,6 @@
 			children = (
 				2FD413AE1780CD13008A67BB /* OctoJobs-Info.plist */,
 				2F924A001791F0FE003B30DC /* InfoPlist.strings */,
-				2FD413B21780CD13008A67BB /* main.m */,
 				2FD413B41780CD13008A67BB /* OctoJobs-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -299,9 +294,8 @@
 			files = (
 				2F924A051791F476003B30DC /* OCJAPIClient.m in Sources */,
 				2FA59BCC179DB55A0048130E /* OCJPositionDetailsViewController.m in Sources */,
-				2FD413B31780CD13008A67BB /* main.m in Sources */,
+				2F32FD9919E4FAC300DF96F4 /* AppDelegate.swift in Sources */,
 				2F924A091791F7E9003B30DC /* OCJPosition.m in Sources */,
-				2FD413B71780CD13008A67BB /* OCJAppDelegate.m in Sources */,
 				2FA59BCF179DB7F10048130E /* OCJPositionCell.m in Sources */,
 				2FB33310179097BD002F2076 /* OCJJobListViewController.m in Sources */,
 			);
@@ -418,10 +412,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OctoJobs/OctoJobs-Prefix.pch";
 				INFOPLIST_FILE = "OctoJobs/OctoJobs-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -431,9 +428,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OctoJobs/OctoJobs-Prefix.pch";
 				INFOPLIST_FILE = "OctoJobs/OctoJobs-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
