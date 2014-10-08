@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		2F32FD9919E4FAC300DF96F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F32FD9819E4FAC300DF96F4 /* AppDelegate.swift */; };
 		2F32FD9B19E4FF3000DF96F4 /* JobListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F32FD9A19E4FF3000DF96F4 /* JobListViewController.swift */; };
+		2F32FD9E19E50E1200DF96F4 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F32FD9D19E50E1200DF96F4 /* Position.swift */; };
 		2F924A021791F0FE003B30DC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F924A001791F0FE003B30DC /* InfoPlist.strings */; };
 		2F924A051791F476003B30DC /* OCJAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F924A041791F476003B30DC /* OCJAPIClient.m */; };
-		2F924A091791F7E9003B30DC /* OCJPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F924A081791F7E9003B30DC /* OCJPosition.m */; };
 		2FA59BCC179DB55A0048130E /* OCJPositionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA59BCB179DB55A0048130E /* OCJPositionDetailsViewController.m */; };
 		2FA59BCF179DB7F10048130E /* OCJPositionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA59BCE179DB7F10048130E /* OCJPositionCell.m */; };
 		2FD413A71780CD13008A67BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD413A61780CD13008A67BB /* Foundation.framework */; };
@@ -41,11 +41,10 @@
 		2F32FD9819E4FAC300DF96F4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F32FD9A19E4FF3000DF96F4 /* JobListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobListViewController.swift; sourceTree = "<group>"; };
 		2F32FD9C19E5047000DF96F4 /* OctoJobs-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OctoJobs-Bridging-Header.h"; sourceTree = "<group>"; };
+		2F32FD9D19E50E1200DF96F4 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		2F924A011791F0FE003B30DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Resources/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F924A031791F476003B30DC /* OCJAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OCJAPIClient.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2F924A041791F476003B30DC /* OCJAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OCJAPIClient.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		2F924A071791F7E9003B30DC /* OCJPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OCJPosition.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		2F924A081791F7E9003B30DC /* OCJPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OCJPosition.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2FA59BCA179DB55A0048130E /* OCJPositionDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OCJPositionDetailsViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2FA59BCB179DB55A0048130E /* OCJPositionDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OCJPositionDetailsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2FA59BCD179DB7F10048130E /* OCJPositionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OCJPositionCell.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -119,8 +118,7 @@
 		2F924A061791F7D7003B30DC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2F924A071791F7E9003B30DC /* OCJPosition.h */,
-				2F924A081791F7E9003B30DC /* OCJPosition.m */,
+				2F32FD9D19E50E1200DF96F4 /* Position.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -292,11 +290,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F32FD9E19E50E1200DF96F4 /* Position.swift in Sources */,
 				2F924A051791F476003B30DC /* OCJAPIClient.m in Sources */,
 				2F32FD9B19E4FF3000DF96F4 /* JobListViewController.swift in Sources */,
 				2FA59BCC179DB55A0048130E /* OCJPositionDetailsViewController.m in Sources */,
 				2F32FD9919E4FAC300DF96F4 /* AppDelegate.swift in Sources */,
-				2F924A091791F7E9003B30DC /* OCJPosition.m in Sources */,
 				2FA59BCF179DB7F10048130E /* OCJPositionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

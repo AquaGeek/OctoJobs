@@ -7,10 +7,10 @@
 
 @import UIKit;
 
-@class OCJPosition;
+@class Position;
 
 @interface OCJPositionCell : UITableViewCell
 
-@property (nonatomic, strong) OCJPosition *position;
+@property (nonatomic, strong) Position *position;
 
 @end

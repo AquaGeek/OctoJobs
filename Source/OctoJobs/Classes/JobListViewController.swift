@@ -9,7 +9,7 @@
 import UIKit
 
 class JobListViewController: UITableViewController {
-    private var positions: [OCJPosition]
+    private var positions: [Position]
     
     // MARK: Object Lifecycle
     required init(coder aDecoder: NSCoder) {
@@ -61,10 +61,10 @@ class JobListViewController: UITableViewController {
             if true {
                 let rawPositions = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.allZeros, error: nil) as [NSDictionary]
                 
-                var newPositions = [OCJPosition]()
+                var newPositions = [Position]()
                 
                 for positionInfo in rawPositions {
-                    var position = OCJPosition(dictionary: positionInfo)
+                    var position = Position(dictionary: positionInfo)
                     newPositions.append(position)
                 }
                 

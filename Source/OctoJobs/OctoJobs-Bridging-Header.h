@@ -3,6 +3,5 @@
 //
 
 #import "OCJAPIClient.h"
-#import "OCJPosition.h"
 #import "OCJPositionCell.h"
 #import "OCJPositionDetailsViewController.h"
