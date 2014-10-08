@@ -7,7 +7,7 @@
 
 #import "OCJPositionDetailsViewController.h"
 
-#import "OCJPosition.h"
+#import "OctoJobs-Swift.h"
 
 @interface OCJPositionDetailsViewController () <UIWebViewDelegate>
 
@@ -30,7 +30,7 @@
 
 #pragma mark -
 
-- (void)setPosition:(OCJPosition *)position
+- (void)setPosition:(Position *)position
 {
     _position = position;
     
@@ -54,7 +54,7 @@
     
     // Logo needs to be injected instead of populated (in case posting doesn't have a logo)
     NSString *logoContents;
-    if (![self.position.companyLogoURL isKindOfClass:[NSNull class]])
+    if (self.position.companyLogoURL)
     {
         logoContents = [NSString stringWithFormat:@"<div class=\"logo\"><img src=\"%@\"></div>",
                         self.position.companyLogoURL];

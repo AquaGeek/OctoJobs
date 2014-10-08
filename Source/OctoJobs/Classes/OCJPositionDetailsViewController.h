@@ -7,10 +7,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class OCJPosition;
+@class Position;
 
 @interface OCJPositionDetailsViewController : UIViewController
 
-@property (nonatomic, strong) OCJPosition *position;
+@property (nonatomic, strong) Position *position;
 
 @end

@@ -7,7 +7,7 @@
 
 #import "OCJPositionCell.h"
 
-#import "OCJPosition.h"
+#import "OctoJobs-Swift.h"
 
 @interface OCJPositionCell()
 
@@ -67,7 +67,7 @@
     self.locationLabel.font = [UIFont fontWithDescriptor:subheadDescriptor size:0.0f];
 }
 
-- (void)setPosition:(OCJPosition *)position
+- (void)setPosition:(Position *)position
 {
     _position = position;
     
