@@ -6,7 +6,7 @@
 //  Copyright (c) 2013-2015 Tyler Stromberg. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
+@import XCTest;
 
 @interface OctoJobsTests : XCTestCase
 

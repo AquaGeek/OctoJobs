@@ -5,7 +5,7 @@
 //  Copyright (c) 2013-2015 Tyler Stromberg. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface OCJPosition : NSObject
 
