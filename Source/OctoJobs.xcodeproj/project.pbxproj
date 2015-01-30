@@ -98,10 +98,7 @@
 			children = (
 				2FD413B51780CD13008A67BB /* OCJAppDelegate.h */,
 				2FD413B61780CD13008A67BB /* OCJAppDelegate.m */,
-				2FB3330E179097BD002F2076 /* OCJJobListViewController.h */,
-				2FB3330F179097BD002F2076 /* OCJJobListViewController.m */,
-				2FA59BCD179DB7F10048130E /* OCJPositionCell.h */,
-				2FA59BCE179DB7F10048130E /* OCJPositionCell.m */,
+				2FC654731A7B3FA1009078A2 /* List View */,
 				2FA59BCA179DB55A0048130E /* OCJPositionDetailsViewController.h */,
 				2FA59BCB179DB55A0048130E /* OCJPositionDetailsViewController.m */,
 				2F924A031791F476003B30DC /* OCJAPIClient.h */,
@@ -128,6 +125,17 @@
 				2F924A081791F7E9003B30DC /* OCJPosition.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2FC654731A7B3FA1009078A2 /* List View */ = {
+			isa = PBXGroup;
+			children = (
+				2FB3330E179097BD002F2076 /* OCJJobListViewController.h */,
+				2FB3330F179097BD002F2076 /* OCJJobListViewController.m */,
+				2FA59BCD179DB7F10048130E /* OCJPositionCell.h */,
+				2FA59BCE179DB7F10048130E /* OCJPositionCell.m */,
+			);
+			path = "List View";
 			sourceTree = "<group>";
 		};
 		2FD4139A1780CD12008A67BB = {
