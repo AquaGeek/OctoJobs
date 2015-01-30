@@ -18,7 +18,7 @@
 @property (nonatomic, copy, readonly) NSString *company;
 @property (nonatomic, copy, readonly) NSString *companyURL;
 @property (nonatomic, copy, readonly) NSString *companyLogoURL;
-@property (nonatomic, strong, readonly) NSDate *createdAt;
+@property (nonatomic, readonly) NSDate *createdAt;
 
 + (instancetype)positionWithDictionary:(NSDictionary *)dictionary;
 

@@ -18,7 +18,7 @@
 @property (nonatomic, copy) NSString *company;
 @property (nonatomic, copy) NSString *companyURL;
 @property (nonatomic, copy) NSString *companyLogoURL;
-@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic) NSDate *createdAt;
 
 @end
 

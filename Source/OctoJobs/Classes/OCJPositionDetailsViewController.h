@@ -11,6 +11,6 @@
 
 @interface OCJPositionDetailsViewController : UIViewController
 
-@property (nonatomic, strong) OCJPosition *position;
+@property (nonatomic) OCJPosition *position;
 
 @end
