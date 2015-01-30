@@ -7,16 +7,14 @@
 
 #import "OCJJobListViewController.h"
 
-#import "OCJAPIClient.h"
-#import "OCJPosition.h"
 #import "OCJPositionCell.h"
 #import "OCJPositionDetailsViewController.h"
+#import "OCJPositionListViewModel.h"
 #import "OCJPositionViewModel.h"
 
 @implementation OCJJobListViewController
 {
-@private
-    NSArray *_positions;
+    OCJPositionListViewModel *_listViewModel;
     OCJPositionCell *_offscreenCell;
 }
 
@@ -30,6 +28,8 @@
                                                  selector:@selector(preferredContentSizeChanged:)
                                                      name:UIContentSizeCategoryDidChangeNotification
                                                    object:nil];
+        
+        _listViewModel = [[OCJPositionListViewModel alloc] init];
     }
     
     return self;
@@ -55,11 +55,11 @@
 {
     [super viewDidAppear:animated];
     
-    if (_positions.count == 0)
+    if (!_listViewModel.positionsLoaded)
     {
         [self.refreshControl beginRefreshing];
         [self.tableView setContentOffset:CGPointMake(0.0f, -CGRectGetHeight(self.refreshControl.bounds)) animated:animated];
-        [self reloadJobs:self.refreshControl];
+        [self.refreshControl sendActionsForControlEvents:UIControlEventValueChanged];
     }
 }
 
@@ -72,47 +72,20 @@
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
-- (OCJPositionViewModel *)viewModelAtIndexPath:(NSIndexPath *)indexPath
-{
-    return _positions[indexPath.row];
-}
-
 - (void)reloadJobs:(id)sender
 {
-    // TODO: Do we want Markdown instead of HTML?
-    // If so, append "?markdown=1"
-    [[OCJAPIClient sharedClient] getPath:@"positions.json"
-                       completionHandler:^(NSData *data, NSError *error) {
-                           if (!error)
-                           {
-                               NSArray *rawPositions = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
-                               
-                               NSMutableArray *newPositions = [NSMutableArray arrayWithCapacity:rawPositions.count];
-                               
-                               for (NSDictionary *positionInfo in rawPositions)
-                               {
-                                   OCJPosition *position = [OCJPosition positionWithDictionary:positionInfo];
-                                   OCJPositionViewModel *viewModel = [OCJPositionViewModel viewModelWithPosition:position];
-                                   
-                                   if (viewModel)
-                                   {
-                                       [newPositions addObject:viewModel];
-                                   }
-                               }
-                               
-                               _positions = [newPositions copy];
-                               
-                               dispatch_async(dispatch_get_main_queue(), ^{
-                                   [self.tableView reloadData];
-                                   [self.refreshControl endRefreshing];
-                               });
-                           }
-                           else
-                           {
-                               // TODO: Show the error
-                               NSLog(@"An error occurred while fetching postings: %@", error.localizedDescription);
-                           }
-                       }];
+    [_listViewModel reloadPositionsWithCompletionHandler:^(NSError *error) {
+        if (error)
+        {
+            // TODO: Show the error
+            NSLog(@"An error occurred while fetching postings: %@", error.localizedDescription);
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        });
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -122,7 +95,7 @@
     if ([segue.identifier isEqualToString:@"PositionDetailsSegue"])
     {
         NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-        OCJPositionViewModel *selectedPosition = [self viewModelAtIndexPath:selectedIndexPath];
+        OCJPositionViewModel *selectedPosition = [_listViewModel viewModelAtIndexPath:selectedIndexPath];
         
         ((OCJPositionDetailsViewController *)segue.destinationViewController).viewModel = selectedPosition;
     }
@@ -133,7 +106,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _positions.count;
+    return [_listViewModel numberOfItemsInSection:section];
 }
 
 static NSString *CellIdentifier = @"JobCell";
@@ -141,7 +114,7 @@ static NSString *CellIdentifier = @"JobCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OCJPositionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    OCJPositionViewModel *viewModel = [self viewModelAtIndexPath:indexPath];
+    OCJPositionViewModel *viewModel = [_listViewModel viewModelAtIndexPath:indexPath];
     cell.viewModel = viewModel;
     
     return cell;
@@ -154,7 +127,7 @@ static NSString *CellIdentifier = @"JobCell";
         _offscreenCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }
     
-    OCJPositionViewModel *viewModel = [self viewModelAtIndexPath:indexPath];
+    OCJPositionViewModel *viewModel = [_listViewModel viewModelAtIndexPath:indexPath];
     _offscreenCell.viewModel = viewModel;
     
     // Let Auto Layout figure out how tall the cell needs to be
