@@ -8,6 +8,9 @@
 #import "OCJPositionCell.h"
 
 #import "OCJPosition.h"
+#import "OCJPositionViewModel.h"
+
+static void *OCJPositionCellKVOContext = &OCJPositionCellKVOContext;
 
 @interface OCJPositionCell()
 
@@ -30,6 +33,10 @@
                                                  selector:@selector(preferredContentSizeChanged:)
                                                      name:UIContentSizeCategoryDidChangeNotification
                                                    object:nil];
+        
+        [self addObserver:self forKeyPath:@"viewModel.position.title" options:0 context:OCJPositionCellKVOContext];
+        [self addObserver:self forKeyPath:@"viewModel.subtitle" options:0 context:OCJPositionCellKVOContext];
+        [self addObserver:self forKeyPath:@"viewModel.position.location" options:0 context:OCJPositionCellKVOContext];
     }
     
     return self;
@@ -45,6 +52,30 @@
     [super awakeFromNib];
     
     [self setFonts];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == OCJPositionCellKVOContext)
+    {
+        // Update the labels, etc
+        if ([keyPath isEqualToString:@"viewModel.position.title"])
+        {
+            self.titleLabel.text = self.viewModel.position.title;
+        }
+        else if ([keyPath isEqualToString:@"viewModel.subtitle"])
+        {
+            self.detailLabel.text = self.viewModel.subtitle;
+        }
+        else if ([keyPath isEqualToString:@"viewModel.position.location"])
+        {
+            self.locationLabel.text = self.viewModel.position.location;
+        }
+    }
+    else
+    {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
 }
 
 
@@ -65,16 +96,6 @@
     subheadDescriptor = [subheadDescriptor fontDescriptorWithSize:lrint(subheadDescriptor.pointSize * 0.9f)];
     self.detailLabel.font = [UIFont fontWithDescriptor:subheadDescriptor size:0.0f];
     self.locationLabel.font = [UIFont fontWithDescriptor:subheadDescriptor size:0.0f];
-}
-
-- (void)setPosition:(OCJPosition *)position
-{
-    _position = position;
-    
-    // Update the labels, etc
-    self.titleLabel.text = position.title;
-    self.detailLabel.text = [NSString stringWithFormat:@"%@ — %@", position.company, position.type];
-    self.locationLabel.text = position.location;
 }
 
 @end

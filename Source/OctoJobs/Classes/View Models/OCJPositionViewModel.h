@@ -12,9 +12,11 @@
 
 @interface OCJPositionViewModel : NSObject
 
-@property (nonatomic, readonly) OCJPosition *position;
-
 + (instancetype)viewModelWithPosition:(OCJPosition *)position;
 - (instancetype)initWithPosition:(OCJPosition *)position NS_DESIGNATED_INITIALIZER;
+
+@property (nonatomic, readonly) OCJPosition *position;
+
+@property (nonatomic, readonly) NSString *subtitle;
 
 @end

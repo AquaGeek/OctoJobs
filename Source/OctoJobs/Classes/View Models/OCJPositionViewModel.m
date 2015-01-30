@@ -8,6 +8,8 @@
 
 #import "OCJPositionViewModel.h"
 
+#import "OCJPosition.h"
+
 @implementation OCJPositionViewModel
 
 + (instancetype)viewModelWithPosition:(OCJPosition *)position
@@ -23,6 +25,14 @@
     }
     
     return self;
+}
+
+
+#pragma mark - Data Formatting
+
+- (NSString *)subtitle
+{
+    return [NSString stringWithFormat:@"%@ — %@", self.position.company, self.position.type];
 }
 
 @end

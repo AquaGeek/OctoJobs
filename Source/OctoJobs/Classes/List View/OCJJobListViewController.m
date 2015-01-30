@@ -138,7 +138,7 @@ static NSString *CellIdentifier = @"JobCell";
 {
     OCJPositionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     OCJPositionViewModel *viewModel = _positions[indexPath.row];
-    cell.position = viewModel.position;
+    cell.viewModel = viewModel;
     
     return cell;
 }
@@ -151,7 +151,7 @@ static NSString *CellIdentifier = @"JobCell";
     }
     
     OCJPositionViewModel *viewModel = _positions[indexPath.row];
-    _offscreenCell.position = viewModel.position;
+    _offscreenCell.viewModel = viewModel;
     
     // Let Auto Layout figure out how tall the cell needs to be
     CGSize cellSize = [_offscreenCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
