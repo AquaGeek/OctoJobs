@@ -2,7 +2,7 @@
 //  OCJPosition.m
 //  OctoJobs
 //
-//  Copyright (c) 2013 Tyler Stromberg. All rights reserved.
+//  Copyright (c) 2013-2015 Tyler Stromberg. All rights reserved.
 //
 
 #import "OCJPosition.h"

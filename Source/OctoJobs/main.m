@@ -3,7 +3,7 @@
 //  OctoJobs
 //
 //  Created by Tyler Stromberg on 6/30/13.
-//  Copyright (c) 2013 Tyler Stromberg. All rights reserved.
+//  Copyright (c) 2013-2015 Tyler Stromberg. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
