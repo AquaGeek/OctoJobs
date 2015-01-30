@@ -2,10 +2,10 @@
 //  OCJAPIClient.h
 //  OctoJobs
 //
-//  Copyright (c) 2013 Tyler Stromberg. All rights reserved.
+//  Copyright (c) 2013-2015 Tyler Stromberg. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface OCJAPIClient : NSObject
 
