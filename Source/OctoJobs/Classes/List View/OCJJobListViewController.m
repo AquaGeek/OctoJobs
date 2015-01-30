@@ -72,6 +72,11 @@
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:NO];
 }
 
+- (OCJPositionViewModel *)viewModelAtIndexPath:(NSIndexPath *)indexPath
+{
+    return _positions[indexPath.row];
+}
+
 - (void)reloadJobs:(id)sender
 {
     // TODO: Do we want Markdown instead of HTML?
@@ -117,10 +122,9 @@
     if ([segue.identifier isEqualToString:@"PositionDetailsSegue"])
     {
         NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-        OCJPositionViewModel *viewModel = _positions[selectedIndexPath.row];
-        OCJPosition *selectedPosition = viewModel.position;
+        OCJPositionViewModel *selectedPosition = [self viewModelAtIndexPath:selectedIndexPath];
         
-        ((OCJPositionDetailsViewController *)segue.destinationViewController).position = selectedPosition;
+        ((OCJPositionDetailsViewController *)segue.destinationViewController).viewModel = selectedPosition;
     }
 }
 
@@ -137,7 +141,7 @@ static NSString *CellIdentifier = @"JobCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OCJPositionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    OCJPositionViewModel *viewModel = _positions[indexPath.row];
+    OCJPositionViewModel *viewModel = [self viewModelAtIndexPath:indexPath];
     cell.viewModel = viewModel;
     
     return cell;
@@ -150,7 +154,7 @@ static NSString *CellIdentifier = @"JobCell";
         _offscreenCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }
     
-    OCJPositionViewModel *viewModel = _positions[indexPath.row];
+    OCJPositionViewModel *viewModel = [self viewModelAtIndexPath:indexPath];
     _offscreenCell.viewModel = viewModel;
     
     // Let Auto Layout figure out how tall the cell needs to be

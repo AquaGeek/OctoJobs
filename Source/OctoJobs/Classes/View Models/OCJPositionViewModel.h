@@ -18,5 +18,6 @@
 @property (nonatomic, readonly) OCJPosition *position;
 
 @property (nonatomic, readonly) NSString *subtitle;
+@property (nonatomic, readonly) NSString *positionDetailsHTML;
 
 @end
