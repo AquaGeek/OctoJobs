@@ -11,6 +11,7 @@
 #import "OCJPosition.h"
 #import "OCJPositionCell.h"
 #import "OCJPositionDetailsViewController.h"
+#import "OCJPositionViewModel.h"
 
 @implementation OCJJobListViewController
 {
@@ -86,10 +87,11 @@
                                for (NSDictionary *positionInfo in rawPositions)
                                {
                                    OCJPosition *position = [OCJPosition positionWithDictionary:positionInfo];
+                                   OCJPositionViewModel *viewModel = [OCJPositionViewModel viewModelWithPosition:position];
                                    
-                                   if (position)
+                                   if (viewModel)
                                    {
-                                       [newPositions addObject:position];
+                                       [newPositions addObject:viewModel];
                                    }
                                }
                                
@@ -115,7 +117,8 @@
     if ([segue.identifier isEqualToString:@"PositionDetailsSegue"])
     {
         NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-        OCJPosition *selectedPosition = _positions[selectedIndexPath.row];
+        OCJPositionViewModel *viewModel = _positions[selectedIndexPath.row];
+        OCJPosition *selectedPosition = viewModel.position;
         
         ((OCJPositionDetailsViewController *)segue.destinationViewController).position = selectedPosition;
     }
@@ -134,7 +137,8 @@ static NSString *CellIdentifier = @"JobCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OCJPositionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell.position = _positions[indexPath.row];
+    OCJPositionViewModel *viewModel = _positions[indexPath.row];
+    cell.position = viewModel.position;
     
     return cell;
 }
@@ -146,7 +150,8 @@ static NSString *CellIdentifier = @"JobCell";
         _offscreenCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }
     
-    _offscreenCell.position = _positions[indexPath.row];
+    OCJPositionViewModel *viewModel = _positions[indexPath.row];
+    _offscreenCell.position = viewModel.position;
     
     // Let Auto Layout figure out how tall the cell needs to be
     CGSize cellSize = [_offscreenCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];

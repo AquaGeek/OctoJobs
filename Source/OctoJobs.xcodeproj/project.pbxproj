@@ -13,6 +13,7 @@
 		2FA59BCC179DB55A0048130E /* OCJPositionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA59BCB179DB55A0048130E /* OCJPositionDetailsViewController.m */; };
 		2FA59BCF179DB7F10048130E /* OCJPositionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA59BCE179DB7F10048130E /* OCJPositionCell.m */; };
 		2FB33310179097BD002F2076 /* OCJJobListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB3330F179097BD002F2076 /* OCJJobListViewController.m */; };
+		2FC654771A7B40D4009078A2 /* OCJPositionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC654761A7B40D4009078A2 /* OCJPositionViewModel.m */; };
 		2FD413A71780CD13008A67BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD413A61780CD13008A67BB /* Foundation.framework */; };
 		2FD413A91780CD13008A67BB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD413A81780CD13008A67BB /* CoreGraphics.framework */; };
 		2FD413AB1780CD13008A67BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD413AA1780CD13008A67BB /* UIKit.framework */; };
@@ -50,6 +51,8 @@
 		2FA59BCE179DB7F10048130E /* OCJPositionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OCJPositionCell.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2FB3330E179097BD002F2076 /* OCJJobListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = OCJJobListViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2FB3330F179097BD002F2076 /* OCJJobListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = OCJJobListViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2FC654751A7B40D4009078A2 /* OCJPositionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCJPositionViewModel.h; sourceTree = "<group>"; };
+		2FC654761A7B40D4009078A2 /* OCJPositionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCJPositionViewModel.m; sourceTree = "<group>"; };
 		2FD413A31780CD13008A67BB /* OctoJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OctoJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FD413A61780CD13008A67BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2FD413A81780CD13008A67BB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -104,6 +107,7 @@
 				2F924A031791F476003B30DC /* OCJAPIClient.h */,
 				2F924A041791F476003B30DC /* OCJAPIClient.m */,
 				2F924A061791F7D7003B30DC /* Models */,
+				2FC654741A7B40C4009078A2 /* View Models */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -136,6 +140,15 @@
 				2FA59BCE179DB7F10048130E /* OCJPositionCell.m */,
 			);
 			path = "List View";
+			sourceTree = "<group>";
+		};
+		2FC654741A7B40C4009078A2 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				2FC654751A7B40D4009078A2 /* OCJPositionViewModel.h */,
+				2FC654761A7B40D4009078A2 /* OCJPositionViewModel.m */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		2FD4139A1780CD12008A67BB = {
@@ -311,6 +324,7 @@
 				2F924A091791F7E9003B30DC /* OCJPosition.m in Sources */,
 				2FD413B71780CD13008A67BB /* OCJAppDelegate.m in Sources */,
 				2FA59BCF179DB7F10048130E /* OCJPositionCell.m in Sources */,
+				2FC654771A7B40D4009078A2 /* OCJPositionViewModel.m in Sources */,
 				2FB33310179097BD002F2076 /* OCJJobListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
