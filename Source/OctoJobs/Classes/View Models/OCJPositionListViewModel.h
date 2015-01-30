@@ -15,7 +15,6 @@
 @property (nonatomic, readonly) BOOL positionsLoaded;
 - (void)reloadPositionsWithCompletionHandler:(void (^)(NSError *))handler;
 
-- (NSInteger)numberOfItemsInSection:(NSInteger)section;
-- (OCJPositionViewModel *)viewModelAtIndexPath:(NSIndexPath *)indexPath;
+@property (nonatomic, readonly) NSArray *positions;
 
 @end

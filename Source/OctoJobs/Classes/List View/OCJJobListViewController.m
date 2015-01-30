@@ -88,6 +88,11 @@
     }];
 }
 
+- (OCJPositionViewModel *)viewModelAtIndexPath:(NSIndexPath *)indexPath
+{
+    return _listViewModel.positions[indexPath.row];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [super prepareForSegue:segue sender:sender];
@@ -95,7 +100,7 @@
     if ([segue.identifier isEqualToString:@"PositionDetailsSegue"])
     {
         NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
-        OCJPositionViewModel *selectedPosition = [_listViewModel viewModelAtIndexPath:selectedIndexPath];
+        OCJPositionViewModel *selectedPosition = [self viewModelAtIndexPath:selectedIndexPath];
         
         ((OCJPositionDetailsViewController *)segue.destinationViewController).viewModel = selectedPosition;
     }
@@ -106,7 +111,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_listViewModel numberOfItemsInSection:section];
+    return _listViewModel.positions.count;
 }
 
 static NSString *CellIdentifier = @"JobCell";
@@ -114,7 +119,7 @@ static NSString *CellIdentifier = @"JobCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OCJPositionCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    OCJPositionViewModel *viewModel = [_listViewModel viewModelAtIndexPath:indexPath];
+    OCJPositionViewModel *viewModel = [self viewModelAtIndexPath:indexPath];
     cell.viewModel = viewModel;
     
     return cell;
@@ -127,7 +132,7 @@ static NSString *CellIdentifier = @"JobCell";
         _offscreenCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }
     
-    OCJPositionViewModel *viewModel = [_listViewModel viewModelAtIndexPath:indexPath];
+    OCJPositionViewModel *viewModel = [self viewModelAtIndexPath:indexPath];
     _offscreenCell.viewModel = viewModel;
     
     // Let Auto Layout figure out how tall the cell needs to be

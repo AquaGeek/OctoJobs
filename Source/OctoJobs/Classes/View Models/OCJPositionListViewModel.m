@@ -60,17 +60,4 @@
                        }];
 }
 
-
-#pragma mark -
-
-- (NSInteger)numberOfItemsInSection:(NSInteger)section
-{
-    return _positions.count;
-}
-
-- (OCJPositionViewModel *)viewModelAtIndexPath:(NSIndexPath *)indexPath
-{
-    return _positions[indexPath.row];
-}
-
 @end
