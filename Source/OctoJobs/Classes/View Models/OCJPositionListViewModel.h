@@ -12,9 +12,9 @@
 
 @interface OCJPositionListViewModel : NSObject
 
-@property (nonatomic, readonly) BOOL positionsLoaded;
-- (void)reloadPositionsWithCompletionHandler:(void (^)(NSError *))handler;
-
 @property (nonatomic, readonly) NSArray *positions;
+@property (nonatomic, readonly) BOOL positionsLoaded;
+
+- (void)reloadPositionsWithCompletionHandler:(void (^)(NSError *))handler;
 
 @end
