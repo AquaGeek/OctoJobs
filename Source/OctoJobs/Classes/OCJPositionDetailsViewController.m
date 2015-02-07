@@ -7,7 +7,7 @@
 
 #import "OCJPositionDetailsViewController.h"
 
-#import "OCJPosition.h"
+#import "OCJPositionViewModel.h"
 
 @interface OCJPositionDetailsViewController () <UIWebViewDelegate>
 
@@ -30,9 +30,9 @@
 
 #pragma mark -
 
-- (void)setPosition:(OCJPosition *)position
+- (void)setViewModel:(OCJPositionViewModel *)viewModel
 {
-    _position = position;
+    _viewModel = viewModel;
     
     if ([self isViewLoaded])
     {
@@ -42,50 +42,7 @@
 
 - (void)updateUI
 {
-    // Show the position details in our formatted template
-    NSString *templatePath = [[NSBundle mainBundle] pathForResource:@"PositionTemplate" ofType:@"html"];
-    NSString *template = [NSString stringWithContentsOfFile:templatePath encoding:NSUTF8StringEncoding error:NULL];
-    
-    NSMutableString *content = [NSMutableString stringWithString:template];
-    [content replaceOccurrencesOfString:@"<%= position_title %>"
-                             withString:self.position.title
-                                options:0
-                                  range:NSMakeRange(0, content.length)];
-    
-    // Logo needs to be injected instead of populated (in case posting doesn't have a logo)
-    NSString *logoContents;
-    if (![self.position.companyLogoURL isKindOfClass:[NSNull class]])
-    {
-        logoContents = [NSString stringWithFormat:@"<div class=\"logo\"><img src=\"%@\"></div>",
-                        self.position.companyLogoURL];
-    }
-    else
-    {
-        logoContents = [NSString string];
-    }
-    [content replaceOccurrencesOfString:@"<%= company_logo %>"
-                             withString:logoContents
-                                options:0
-                                  range:NSMakeRange(0, content.length)];
-    
-    [content replaceOccurrencesOfString:@"<%= position_description %>"
-                             withString:self.position.HTMLDescription
-                                options:0
-                                  range:NSMakeRange(0, content.length)];
-    [content replaceOccurrencesOfString:@"<%= how_to_apply %>"
-                             withString:self.position.howToApply
-                                options:0
-                                  range:NSMakeRange(0, content.length)];
-    [content replaceOccurrencesOfString:@"<%= position_type %>"
-                             withString:self.position.type
-                                options:0
-                                  range:NSMakeRange(0, content.length)];
-    [content replaceOccurrencesOfString:@"<%= position_location %>"
-                             withString:self.position.location
-                                options:0
-                                  range:NSMakeRange(0, content.length)];
-    
-    [self.webView loadHTMLString:content baseURL:nil];
+    [self.webView loadHTMLString:self.viewModel.positionDetailsHTML baseURL:nil];
 }
 
 
